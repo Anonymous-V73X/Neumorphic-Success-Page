@@ -1,0 +1,164 @@
+:root {
+  --bgColor: #e0e0e0;
+  --glovoOrange: #ffc244;
+  --dark: #000;
+  --darkShadow: rgba(0, 0, 0, 0.1);
+  --milkyWhite: #fff;
+  --textColor: #747474;
+  --smoothGrey: #eee;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap");
+
+/* General Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Bai Jamjuree", sans-serif;
+  background-color: var(--bgColor);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 145deg;
+  inherits: false;
+}
+
+@property --gradient-color-1 {
+  syntax: "<color>";
+  initial-value: #cacaca;
+  inherits: false;
+}
+
+@property --gradient-color-2 {
+  syntax: "<color>";
+  initial-value: #f0f0f0;
+  inherits: false;
+}
+
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+  padding: 20px;
+  border-radius: 50px;
+  background: linear-gradient(
+    var(--gradient-angle),
+    var(--gradient-color-1),
+    var(--gradient-color-2)
+  );
+
+
+
+  
+
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  min-width: 300px;
+  height: 400px;
+
+  transition: --gradient-angle 0.3s ease-in-out,
+    --gradient-color-1 0.3s ease-in-out, --gradient-color-2 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+
+  cursor: pointer;
+
+
+}
+
+.success-container:hover {
+  --gradient-angle: 145deg;
+  --gradient-color-1: #f0f0f0;
+  --gradient-color-2: #cacaca;
+  box-shadow: none !important;
+}
+
+/* Animation SVG */
+.animation {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.checkmark {
+  width: 100px;
+  height: 100px;
+}
+
+.checkmark-circle {
+  stroke: var(--glovoOrange);
+  stroke-width: 2;
+  animation: circle-fill 0.7s ease-in-out forwards;
+}
+
+.checkmark-check {
+  stroke: var(--glovoOrange);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: check-draw 1s 1s ease forwards;
+}
+
+/* Animations */
+@keyframes circle-fill {
+  0% {
+    stroke-dasharray: 0, 158;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 158, 158;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes check-draw {
+  from {
+    stroke-dashoffset: 40;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Success Label */
+.success-label {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--glovoOrange);
+  margin-bottom: 20px;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+/* Action Button */
+.action-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: var(--glovoOrange);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-weight: bold;
+  margin-top: 100px;
+  
+  
+}
+
+.action-button:hover {
+  background-color: var(--textColor)
+}
+
+.action-button:active {
+  background-color: #2e7d32;
+}
